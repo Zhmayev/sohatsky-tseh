@@ -1,0 +1,37 @@
+<section
+  class="about {% if include.extra_class %} {{include.extra_class}} {% endif %} bg-white"
+>
+  <div class="container">
+    {% for pro in site.pros %}
+    <div class="row" style="padding-bottom: 2rem">
+      <div
+        itemprop="accountablePerson"
+        itemscope
+        itemtype="{{site.url}}{{page.url}}"
+        class="col-md-7 {% cycle 'order-2', '' %}"
+        style="padding-top: 5rem"
+      >
+        <h5 itemprop="title" class="wow animated fadeIn" data-wow-delay="1.5s">
+          {{pro.title}}
+        </h5>
+        <p
+          itemprop="description"
+          class="wow animated fadeIn"
+          data-wow-delay="1.5s"
+        >
+          {{pro.text}}
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img
+          itemprop="image"
+          src="{{pro.image | relative_url}}"
+          alt="{{pro.alt}}"
+          class="img-fluid wow animated fadeIn"
+          data-wow-delay="0.5s"
+        />
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
